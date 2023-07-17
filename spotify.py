@@ -6,6 +6,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 
 
 def spotifyApi(emotion_label):
+    print("Emotion: ", emotion_label)
     # Spotify client credentials
     client_id = '47c52f0f93b7443bb45e266ad959f7f9'
     client_secret = '0b61ccfc898746eeab46f474d4712b9d'
@@ -21,7 +22,7 @@ def spotifyApi(emotion_label):
         playlist_name = random_playlist['name']
         playlist_uri = random_playlist['uri']
         playlist_url = random_playlist['external_urls']['spotify']
-        print("SPOTIFY")
+        print("\nSPOTIFY")
         print("Recommended Playlist:", playlist_name)
         print("Playlist URI:", playlist_uri)
         print("Playlist URL:", playlist_url)

@@ -4,6 +4,7 @@ import webbrowser
 
 
 def youtube(query):
+    print("Emotion: ", query)
     # Set up the YouTube Data API client
     api_key = 'AIzaSyAcspTKj8udvDMoZMIdvx-oyMbSJb6ysnY'
     yt = build('youtube', 'v3', developerKey=api_key)
@@ -22,7 +23,7 @@ def youtube(query):
         # Open the video in a web browser
         video_url = f"https://www.youtube.com/watch?v={video_id}&autoplay=1"
 
-        print("YOUTUBE")
+        print("\nYOUTUBE")
         print(f"Video Title: {title}")
         print(f"Video ID: {video_id}")
         print(f"Video URL: {video_url}")

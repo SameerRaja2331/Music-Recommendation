@@ -8,7 +8,7 @@ from spotify import spotifyApi
 def main():
 
     class_names = ["Angry", "Disgust", "Fear", "Happy", "Neutral", "Sad", "Surprise"]
-    model = tf.keras.models.load_model("./ferNetModel.h5")
+    model = tf.keras.models.load_model("./custom_model.h5")
     faceDetect = cv2.CascadeClassifier("./haarcascade_frontalface_default.xml")
     video = cv2.VideoCapture(0)
 
@@ -39,6 +39,7 @@ def main():
             break
 
         cv2.imshow("Frame", frame)
+        cv2.imwrite("emotion_frame.jpg", frame)
         cv2.waitKey(5000)
         youtube(emotion_label)
         spotifyApi(emotion_label)
