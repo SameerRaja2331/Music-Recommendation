@@ -1,3 +1,4 @@
+# Importing necessary libraries and modules for the project.
 import seaborn as sns
 sns.set_theme(style="whitegrid")
 import matplotlib.pyplot as plt
@@ -10,15 +11,21 @@ from keras.layers import Conv2D, Dense, BatchNormalization, Dropout, MaxPooling2
 from keras.callbacks import ModelCheckpoint, CSVLogger, EarlyStopping, ReduceLROnPlateau
 from keras.preprocessing.image import ImageDataGenerator, load_img
 
+# Defining the variables for the train & test directory
 train_directory = './train/'
 test_directory = './test/'
 
+# Defining the dimensions of the input image
 image_row = 48
 image_col = 48
+
+# Calculating the number of classes in train_directory
 num_classes = len(os.listdir(train_directory))
 print(num_classes)
 
 
+# For the training set, it iterates over the subdirectories in the train_directory. For each subdirectory, 
+# it prints the name of the folder and the count of images found within that folder.
 print("Train Set:")
 train_counts = []
 for folder in os.listdir(train_directory):
@@ -34,6 +41,8 @@ for folder in os.listdir(test_directory):
     test_counts.append(len(os.listdir(test_directory + folder)))
 
 
+# This generates bar plots to visualize the distribution of images across different classes. 
+# The bar plots show the class names on the y-axis and the corresponding image counts on the x-axis. 
 plt.figure(figsize=(8, 4))
 ax = sns.barplot(y=os.listdir(train_directory),
                  x=train_counts,
@@ -51,6 +60,8 @@ print()
 
 plt.figure(figsize=(20, 20))
 
+# Displaying a grid of sample images from each class in the training dataset. 
+# It creates a figure with a size of 20x20 inches and uses a subplot to arrange the images in a grid layout. 
 i = 1
 for folder in os.listdir(train_directory):
     img = load_img((train_directory + folder + '/' + os.listdir(train_directory + folder)[1]))
@@ -61,6 +72,8 @@ for folder in os.listdir(train_directory):
     i += 1
 plt.show()
 
+# The ImageDataGenerator is configured with various data augmentation techniques such as rescaling, zooming, & 
+# horizontal flipping. It will generate batches of training data by reading images from the specified directory.
 train_data_generator = ImageDataGenerator(rescale=1. / 255,
                                           zoom_range=0.3,
                                           horizontal_flip=True)
@@ -84,7 +97,7 @@ test_set = test_data_generator.flow_from_directory(test_directory,
 
 print(training_set.class_indices)
 
-
+# Building a custom convolutional neural network (CNN) model. The model architecture consists of multiple layers
 def create_custom_model(input_size, classes=7):
     model = tf.keras.models.Sequential()
 
@@ -116,6 +129,7 @@ def create_custom_model(input_size, classes=7):
 custom_model = create_custom_model((image_row, image_col, 1), num_classes)
 print(custom_model.summary())
 
+# Here we set up various callbacks to be used during the training of the model.
 checkpoint_path = 'custom_model.h5'
 log_directory = "checkpoint/logs/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 
@@ -142,6 +156,7 @@ csv_logger = CSVLogger('training.log')
 
 callbacks = [checkpoint, reduce_lr, csv_logger]
 
+# Finally, fitting the model and performance evaluation
 steps_per_epoch = training_set.n // training_set.batch_size
 validation_steps = test_set.n // test_set.batch_size
 

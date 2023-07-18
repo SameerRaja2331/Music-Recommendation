@@ -6,7 +6,9 @@ from spotipy.oauth2 import SpotifyClientCredentials
 
 
 def spotifyApi(emotion_label):
+
     print("Emotion: ", emotion_label)
+
     # Spotify client credentials
     client_id = '<your_client_id>'
     client_secret = '<your_client_secret>'
@@ -15,8 +17,11 @@ def spotifyApi(emotion_label):
     client_credentials_manager = SpotifyClientCredentials(client_id, client_secret)
     spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
+    # The search() method of the Spotify API client is called to search for playlists based on the 
+    # emotion_label and retrieve the search response.
     playlists = spotify.search(q=emotion_label, type='playlist')['playlists']['items']
 
+    # If the search response contains any playlists, a random playlist is chosen from the search results.
     if playlists:
         random_playlist = random.choice(playlists)
         playlist_name = random_playlist['name']
@@ -27,7 +32,7 @@ def spotifyApi(emotion_label):
         print("Playlist URI:", playlist_uri)
         print("Playlist URL:", playlist_url)
 
-        # Play the playlist in the default web browser
+        # Open the playlist in the default web browser
         webbrowser.open(playlist_url)
 
 
