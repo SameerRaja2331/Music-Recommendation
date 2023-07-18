@@ -1,4 +1,4 @@
-# Music-Recommendation
+# Music-Recommendation Based on User's Facial Emotion
 1.	Clone the Repository:
 Clone the project repository from GitHub using the following command in your terminal or command prompt:
 git clone https://github.com/SameerRaja2331/Music-Recommendation.git
@@ -19,8 +19,8 @@ In your project code, locate the section where Spotify API authentication is set
 6.	Similarly if you want make use of youtube api, go to google cloud console. Enable the youtube data api v3 and obtain the API credentials. Then in your project code replace the <api_key> with your actual youtube API credentials.
 
 7.	Run the Project:
-Once the environment is set up and the code is updated with the necessary credentials, you can run the project. Execute the main script or entry point file of your project, which is typically the file with the main() function or the file mentioned in the project documentation. Use the following command:
-python <entry_file_name>.py
+Once the environment is set up and the code is updated with the necessary credentials, you can run the project. Execute the main script file that is main.py using the command -
+python main.py or you can use any IDE and run the main file.
 
 8.	Test the Project:
 Test the project by using facial expressions in front of your camera or webcam. The system should detect your facial expressions and recommend appropriate music playlists based on your emotions.
