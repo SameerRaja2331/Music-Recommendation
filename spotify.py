@@ -8,8 +8,8 @@ from spotipy.oauth2 import SpotifyClientCredentials
 def spotifyApi(emotion_label):
     print("Emotion: ", emotion_label)
     # Spotify client credentials
-    client_id = '47c52f0f93b7443bb45e266ad959f7f9'
-    client_secret = '0b61ccfc898746eeab46f474d4712b9d'
+    client_id = '<your_client_id>'
+    client_secret = '<your_client_secret>'
 
     # Spotify authentication
     client_credentials_manager = SpotifyClientCredentials(client_id, client_secret)

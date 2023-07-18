@@ -6,7 +6,7 @@ import webbrowser
 def youtube(query):
     print("Emotion: ", query)
     # Set up the YouTube Data API client
-    api_key = 'AIzaSyAcspTKj8udvDMoZMIdvx-oyMbSJb6ysnY'
+    api_key = '<api_key>'
     yt = build('youtube', 'v3', developerKey=api_key)
 
     search_response = yt.search().list(
