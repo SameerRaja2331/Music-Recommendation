@@ -1,11 +1,11 @@
 # Music-Recommendation Based on User's Facial Emotion
 1.	Clone the Repository:
 Clone the project repository from GitHub using the following command in your terminal or command prompt:
-git clone https://github.com/SameerRaja2331/Music-Recommendation.git
+**git clone https://github.com/SameerRaja2331/Music-Recommendation.git**
 
 2.	Set up the Environment:
 You can use the pip package manager to install the dependencies by running:
-pip install -r requirements.txt
+**pip install -r requirements.txt**
 
 3.	Download the trained model from the drive link provided below and include it in the **project root folder**.
 https://drive.google.com/file/d/1hkqPf2ZJC5wJVvu6kZrCLTO54zH8DmhC/view?usp=sharing
@@ -20,7 +20,7 @@ In your project code, locate the section where Spotify API authentication is set
 
 7.	Run the Project:
 Once the environment is set up and the code is updated with the necessary credentials, you can run the project. Execute the main script file that is main.py using the command -
-python main.py or you can use any IDE and run the main file.
+**python main.py** or you can use any IDE and run the main file.
 
 8.	Test the Project:
 Test the project by using facial expressions in front of your camera or webcam. The system should detect your facial expressions and recommend appropriate music playlists based on your emotions.
